@@ -1,24 +1,56 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AppShell } from "@/components/layout/AppShell";
+import { KpiGrid } from "@/components/dashboard/KpiGrid";
+import { GisPanel } from "@/components/dashboard/GisPanel";
+import { OperationsPanel } from "@/components/dashboard/OperationsPanel";
+import { AlertsPanel } from "@/components/dashboard/AlertsPanel";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Command Center — NER-LOGIX";
+const description =
+  "Operational command center for logistics and medical transport across Assam and Meghalaya: missions, incidents, route risk and network accessibility.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: CommandCenter,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function CommandCenter() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <AppShell activeNavId="command-center">
+      <div className="space-y-4 p-4 lg:p-6">
+        <div className="flex flex-wrap items-end gap-3">
+          <div>
+            <h1 className="text-lg font-semibold text-foreground">Command Center</h1>
+            <p className="text-xs text-muted-foreground">
+              North Eastern Region · Assam &amp; Meghalaya · 12 districts monitored
+            </p>
+          </div>
+          <span className="ml-auto rounded border border-primary/40 bg-primary/10 px-2 py-1 font-mono text-[10px] tracking-wide text-primary">
+            PROTOTYPE DATA — NOT OPERATIONAL
+          </span>
+        </div>
+
+        <KpiGrid />
+
+        <div className="grid gap-4 xl:grid-cols-3">
+          <div className="xl:col-span-2">
+            <GisPanel />
+          </div>
+          <div className="grid min-h-0 gap-4 xl:grid-rows-2">
+            <OperationsPanel />
+            <AlertsPanel />
+          </div>
+        </div>
+      </div>
+    </AppShell>
   );
 }
