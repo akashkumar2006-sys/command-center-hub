@@ -102,7 +102,7 @@ export const DISTRICTS: MapDistrict[] = [
   { id: "east-khasi-hills", name: "East Khasi Hills", state: "Meghalaya", x: 30, y: 64, risk: "moderate" },
   { id: "ri-bhoi", name: "Ri-Bhoi", state: "Meghalaya", x: 30, y: 55, risk: "safe" },
   { id: "west-khasi-hills", name: "West Khasi Hills", state: "Meghalaya", x: 20, y: 62, risk: "safe" },
-  { id: "east-jaintia-hills", name: "East Jaintia Hills", state: "Meghalaya", x: 42, y: 66, risk: "blocked" },
+  { id: "east-jaintia-hills", name: "East Jaintia Hills", state: "Meghalaya", x: 40, y: 67, risk: "blocked" },
   { id: "west-garo-hills", name: "West Garo Hills", state: "Meghalaya", x: 7, y: 63, risk: "moderate" },
   { id: "south-west-garo-hills", name: "SW Garo Hills", state: "Meghalaya", x: 9, y: 71, risk: "safe" },
 ];
@@ -135,9 +135,9 @@ export interface MapVehicle {
 
 export const MAP_VEHICLES: MapVehicle[] = [
   { id: "LG-114", label: "LG-114", kind: "logistics", x: 66, y: 24 },
-  { id: "LG-208", label: "LG-208", kind: "logistics", x: 48, y: 34 },
+  { id: "LG-208", label: "LG-208", kind: "logistics", x: 52, y: 38 },
   { id: "LG-331", label: "LG-331", kind: "logistics", x: 20, y: 53 },
-  { id: "MD-051", label: "MD-051", kind: "medical", x: 30, y: 55 },
+  { id: "MD-051", label: "MD-051", kind: "medical", x: 24, y: 50 },
   { id: "MD-077", label: "MD-077", kind: "medical", x: 55, y: 58 },
 ];
 
@@ -150,7 +150,7 @@ export interface MapIncident {
 }
 
 export const MAP_INCIDENTS: MapIncident[] = [
-  { id: "INC-2291", type: "Landslide", severity: "blocked", x: 47, y: 64 },
+  { id: "INC-2291", type: "Landslide", severity: "blocked", x: 50, y: 71 },
   { id: "INC-2288", type: "Flooding", severity: "high", x: 62, y: 55 },
   { id: "INC-2284", type: "Road erosion", severity: "moderate", x: 86, y: 16 },
 ];
